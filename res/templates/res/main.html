@@ -1,0 +1,19 @@
+{% extends 'res/index.html' %}
+{% load static %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <section class="up">
+        <h1 class="name">Рецепты дня</h1>
+    </section>
+    {% for recipe in recipes %}
+    <div class="five_recipe">
+        <a href="{% url 'recipe' recipe.pk %}" class="recipe_name">{{ recipe.recipe_name }}</a>
+        <img src="{% static recipe.picture %}" class="recipe_picture"/>
+        <div>{{ recipe.description }}</div>
+        <div>Время приготовления: {{ recipe.time }}</div>
+        <div>Автор рецепта: {{ recipe.author }}</div>
+    </div>
+    {% endfor %} 
+{% endblock %} 

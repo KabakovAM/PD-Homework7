@@ -1,0 +1,13 @@
+{% extends "res/index.html" %}
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<section class="up">
+    <h1 class="name">Регистрация</h1>
+</section>
+<form action="" method="post" class="up">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Зарегестрироваться">
+</form>    
+{% endblock %}

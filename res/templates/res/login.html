@@ -1,0 +1,13 @@
+{% extends "res/index.html" %}
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+<section class="up">
+    <h1 class="name">Вход</h1>
+</section>
+<form action="" method="post" class="up">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Войти">
+</form>    
+{% endblock %}

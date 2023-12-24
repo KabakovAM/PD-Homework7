@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Index{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            {% if request.user.username == "" %}
+                <a href="{% url 'register' %}" class="menu">Регистрация</a>
+                <a href="{% url 'login' %}" class="menu">Войти</a>
+            {% else %}
+                <div class="menu"> {{ request.user.username }} </div>
+                <a href="{% url 'logout' %}" class="menu">Выйти</a>
+                <a href="{% url 'new_recipe' %}" class="menu">Добавить рецепт</a>
+                <a href="{% url 'update_recipe' %}" class="menu">Редактировать рецепт</a>
+            {% endif %}
+            <a href="{% url 'all_recipe' %}" class="menu">Все рецепты</a>
+            <a href="{% url 'main' %}" class="menu">Главная</a>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer class="footer">
+        <p>Arec Kitchen. GeekBrains.</p>
+    </footer>
+</body>
+
+</html>
